@@ -1,0 +1,32 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<h1 ><center>Students</center></h1>
+
+<a style="text-decoration:none;float:right;" href="{% url "login"%}">Login</a>
+<table class="table" border="1" style="margin:auto">
+<thead>
+    <tr>
+    <th scope="col">Student name</th>
+    <th scope="col"> Age</th>
+    <th scope="col">View</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for book in object_list %}
+    <tr>
+    <td>{{ book.name }}</td>
+    <td>{{ book.pages }}</td>
+    <td><a href="{% url "book_view" book.id %}">view</a></td>
+    <td><a href="{% url "book_edit" book.id %}">edit</a></td>
+    <td><a href="{% url "book_delete" book.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<center><button ><a class="btn-primary btn" style="text-decoration:none;" href="{% url "book_new" %}">New</a></button></center>
+
